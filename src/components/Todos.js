@@ -1,14 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeTodo, markTodoAsComplete } from "../redux/actions/todosActions";
+import { removeTodo, markTodoAsComplete ,markTodoAsIncomplete} from "../redux/actions/todosActions";
+import "../App.css";
 
 function Todos() {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
   return (
-    <div>
+    <div className="todo">
       {todos.map((todo) => (
         <>
+        <button className="removetodo" onClick={() => dispatch(removeTodo(todo.id))}>x</button>
           <h4
             key={todo.id}
             style={{ textDecoration: todo.is_complete ? "line-through" : "" }}
@@ -16,10 +18,13 @@ function Todos() {
             {todo.title}
           </h4>
           <div style={{ display: "flex" }}>
-            <button onClick={() => dispatch(removeTodo(todo.id))}>x</button>
-            <button onClick={() => dispatch(markTodoAsComplete(todo.id))}>
-              completed
-            </button>
+            
+            {todo.is_complete ? <button onClick={() => dispatch(markTodoAsIncomplete(todo.id))}>
+              Mark as incomplete
+            </button> : <button onClick={() => dispatch(markTodoAsComplete(todo.id))}>
+              Mark as complete
+            </button>}
+            
           </div>
         </>
       ))}

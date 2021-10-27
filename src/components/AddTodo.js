@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/actions/todosActions";
+import "../App.css";
 
 function AddTodo() {
   const [title, setTitle] = useState("");

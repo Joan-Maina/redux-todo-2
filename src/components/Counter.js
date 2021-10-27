@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addCount, subtractCount } from "../redux/actions/counterActions";
+import "../App.css";
 
 function Counter() {
   const count = useSelector((state) => state.counter);
