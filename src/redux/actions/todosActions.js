@@ -21,9 +21,9 @@ export const markTodoAsComplete = (id) => {
   };
 };
 
-export const markTodoAsIncomplete = (id) => {
-  return {
-    type: MARK_TODO_INCOMPLETE,
-    payload: id,
-  };
-};
+// export const markTodoAsIncomplete = (id) => {
+//   return {
+//     type: MARK_TODO_INCOMPLETE,
+//     payload: id,
+//   };
+// };

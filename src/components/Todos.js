@@ -19,11 +19,10 @@ function Todos() {
           </h4>
           <div style={{ display: "flex" }}>
             
-            {todo.is_complete ? <button onClick={() => dispatch(markTodoAsIncomplete(todo.id))}>
-              Mark as undone
-            </button> : <button onClick={() => dispatch(markTodoAsComplete(todo.id))}>
-              Mark as done
-            </button>}
+           <button onClick={() => dispatch(markTodoAsComplete(todo.id))}> {todo.is_complete ? 
+              'Mark as undone' :
+              'Mark as done'}
+            </button>
             
           </div>
         </>

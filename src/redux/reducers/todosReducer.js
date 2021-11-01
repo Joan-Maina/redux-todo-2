@@ -10,14 +10,14 @@ const todosReducer = (state = initialState, { type, payload }) => {
       return state.filter((todo) => todo.id !== payload);
     case MARK_TODO_COMPLETE:
       return state.map((todo) => {
-        if (todo.id === payload) todo.is_complete = true;
+        if (todo.id === payload) todo.is_complete = !todo.is_complete;
         return todo;
       });
-      case MARK_TODO_INCOMPLETE:
-        return state.map((todo) => {
-          if(todo.id === payload) todo.is_complete = false;
-          return todo;
-        });
+      // case MARK_TODO_INCOMPLETE:
+      //   return state.map((todo) => {
+      //     if(todo.id === payload) todo.is_complete = false;
+      //     return todo;
+      //   });
     default:
       return state;
   }
